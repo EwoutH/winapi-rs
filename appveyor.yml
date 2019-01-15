@@ -2,9 +2,6 @@ image: Visual Studio 2019 Preview
 
 environment:
   matrix:
-  - target: x86_64-pc-windows-msvc
-    host: x86_64-pc-windows-msvc
-    channel: nightly
   - target: aarch64-pc-windows-msvc
     host: x86_64-pc-windows-msvc
     channel: nightly
@@ -36,7 +33,7 @@ install:
 build_script:
   - cargo build --target=%target%
   - cargo build --release --target=%target%
-  - cargo build --target=%target% --features "everything debug impl-default"
+#  - cargo build --target=%target% --features "everything debug impl-default"
 
 test_script:
   - cargo test --target=%target% --features "everything debug impl-default"
